@@ -1,0 +1,17 @@
+.git
+
+# yeah basically uhhh
+client/Library
+client/Logs
+client/obj
+client/UserSettings
+client/*.sln
+client/*.csproj
+
+server/Library
+server/Logs
+server/obj
+server/UserSettings
+server/*.sln
+server/*.csproj
+

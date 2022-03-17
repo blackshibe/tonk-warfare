@@ -1,0 +1,41 @@
+# Target
+
+TDM with 4 classes to pick from and a few maps
+
+# Server
+
+[ ] Boilerplate
+[ ] connecting with id/username
+[ ] packet system
+
+# Lobby
+
+[ ] UI
+[ ] Leaderboard
+
+# Gameplay
+
+[ ] Basic movement
+[ ] Camera controller
+[ ] UI 
+[ ] Ammunition
+[ ] Projectiles
+
+# Replication
+
+[ ] Replicate userdata
+[ ] Replicate characters
+
+# Sound
+
+[ ] Tank engines
+[ ] Projectile firing
+[ ] Tank impact
+
+# Ordered
+
+1. finish making the movement non-shit
+2. design a HUD
+3. implement a HUD
+4. get a main menu working
+5. get a logger overhead ui working
