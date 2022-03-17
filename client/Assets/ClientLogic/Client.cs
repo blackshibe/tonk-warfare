@@ -15,7 +15,6 @@ public class Client : MonoBehaviour {
     public int local_id = -1;
     public string local_username = "guest";
 
-    // Start is called before the first frame update
     void Start() {}
 
     public async void Connect() {
