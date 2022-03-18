@@ -1,6 +1,7 @@
 .git
 
 # yeah basically uhhh
+client/Temp
 client/Library
 client/Logs
 client/obj
@@ -8,6 +9,7 @@ client/UserSettings
 client/*.sln
 client/*.csproj
 
+server/Temp
 server/Library
 server/Logs
 server/obj
