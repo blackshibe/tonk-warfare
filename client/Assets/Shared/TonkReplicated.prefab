@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 3027662088954926612}
   - component: {fileID: 3027662088954926609}
   m_Layer: 2
-  m_Name: Tonk
+  m_Name: TonkReplicated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

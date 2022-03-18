@@ -24,4 +24,9 @@ public class Menu : MonoBehaviour {
        // hopefully connected lol
        Instantiate(local_tank_prefab, new Vector3(-12, 1, 7), new Quaternion());
     }
+
+    public void LocalPlay() {
+       GetComponent<Canvas>().enabled = false;
+       Instantiate(local_tank_prefab, new Vector3(-12, 1, 7), new Quaternion());
+    }
 }

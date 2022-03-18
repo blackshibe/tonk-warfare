@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // https://www.youtube.com/watch?v=x0LUiE0dxP0
-public class VehiclePhysics : MonoBehaviour
+// https://www.asawicki.info/Mirror/Car%20Physics%20for%20Games/Car%20Physics%20for%20Games.html
+
+public class VehiclePhysicsOld : MonoBehaviour
 {
     public Transform[] wheels = new Transform[5]; 
     float[] spring_list = new float[] {0,0,0,0}; 
@@ -19,7 +21,7 @@ public class VehiclePhysics : MonoBehaviour
     public float speed;
     public float wheel_radius = 0.33f;
     public float max_force;
-    public float max_speed;
+    public float roll_force;
 
     public Vector3 offset;
 
@@ -69,9 +71,9 @@ public class VehiclePhysics : MonoBehaviour
                 float damper_force = velocity * damper_stiffness;
 
                 Vector3 local_wheel_velocity = transform.InverseTransformDirection(car.GetPointVelocity(hit.point));
-                float factored_speed = -local_wheel_velocity.z;
-                float fZ = factored_speed * ((1 - Mathf.Abs(forwards_input)) * 1000) + forwards_input * speed * force;
-                float fX = local_wheel_velocity.x * force;
+                Debug.Log(local_wheel_velocity.z);
+                float fZ = (-local_wheel_velocity.z * roll_force) + forwards_input * speed * force;
+                float fX = local_wheel_velocity.x * roll_force;// * force;
                 if (i <= 1) fZ += Input.GetAxis("Horizontal") * rot_velocity * Time.fixedDeltaTime;
                 else fZ -= Input.GetAxis("Horizontal") * rot_velocity * Time.fixedDeltaTime;
                 

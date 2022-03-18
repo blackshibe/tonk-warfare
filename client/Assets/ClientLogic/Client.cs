@@ -7,7 +7,7 @@ public class Client : MonoBehaviour {
     TcpClient client = new TcpClient();  
     Thread client_connection_thread;
     NetworkStream client_stream;
-    StreamWrite stream_write;
+    PacketHandler packet_handler;
 
     public string ip = "127.0.0.1";
     public bool connected = false;
@@ -30,7 +30,7 @@ public class Client : MonoBehaviour {
     void ClientAction() {
         Debug.Log($"Doing something probably");
         client_stream = client.GetStream();
-        stream_write = new StreamWrite(client_stream);
+        packet_handler = new PacketHandler(client_stream);
         connected = true;
     }
 
@@ -40,10 +40,10 @@ public class Client : MonoBehaviour {
                 int header = client_stream.ReadByte();
 
                 if (header == Packet.SERVER_INIT_HANDSHAKE) {
-                    local_id = stream_write.ReadU16();
+                    local_id = packet_handler.ReadU16();
                     Debug.Log($"received local ID {local_id}");
-                    stream_write.WriteHeader(Packet.CLIENT_HANDSHAKE);
-                    stream_write.WriteString(local_username);
+                    packet_handler.WriteHeader(Packet.CLIENT_HANDSHAKE);
+                    packet_handler.WriteString(local_username);
                 } 
             }
     }

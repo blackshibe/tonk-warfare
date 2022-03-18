@@ -3,10 +3,12 @@ using System.Net.Sockets;
 using System;
 using UnityEngine;
 
-class StreamWrite {
+// wrapper for NetworkStream to make writing data easier
+
+class PacketHandler {
     public NetworkStream stream;
 
-    public StreamWrite(NetworkStream stream) {
+    public PacketHandler(NetworkStream stream) {
         this.stream = stream;
     }
 
