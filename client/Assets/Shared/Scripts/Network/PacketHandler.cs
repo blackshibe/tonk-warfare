@@ -5,7 +5,7 @@ using UnityEngine;
 
 // wrapper for NetworkStream to make writing data easier
 
-class PacketHandler {
+public class PacketHandler {
     public NetworkStream stream;
 
     public PacketHandler(NetworkStream stream) {
@@ -46,6 +46,68 @@ class PacketHandler {
     public void WriteU16(ushort number) {
         byte[] buffer = BitConverter.GetBytes(number);
         stream.Write(buffer, 0, buffer.Length);
+    }
+
+    public void WriteInt(int number) {
+        byte[] buffer = BitConverter.GetBytes(number);
+        stream.Write(buffer, 0, buffer.Length);
+    }
+
+    public void WriteFloat(float number) {
+        byte[] buffer = BitConverter.GetBytes(number);
+        stream.Write(buffer, 0, buffer.Length);
+    }
+
+    // floats are always 4 bytes according to a google search
+    public float ReadFloat() {
+        byte[] num = new byte[4];
+        num[0] = (byte)stream.ReadByte();
+        num[1] = (byte)stream.ReadByte();
+        num[2] = (byte)stream.ReadByte();
+        num[3] = (byte)stream.ReadByte();
+
+        return BitConverter.ToSingle(num);
+    }
+
+    public int ReadInt() {
+        byte[] num = new byte[4];
+        num[0] = (byte)stream.ReadByte();
+        num[1] = (byte)stream.ReadByte();
+        num[2] = (byte)stream.ReadByte();
+        num[3] = (byte)stream.ReadByte();
+
+        return BitConverter.ToInt16(num);
+    }
+
+    public void WriteVector3(Vector3 vector) {
+        WriteFloat(vector.x);
+        WriteFloat(vector.y);
+        WriteFloat(vector.z);
+    }
+    
+    public void WriteColor(Color color) {
+        WriteFloat(color.r);
+        WriteFloat(color.g);
+        WriteFloat(color.b);
+    }
+
+    public void WriteBool(bool _bool) {
+        byte[] data = BitConverter.GetBytes(_bool);
+        stream.Write(data, 0, data.Length);
+    }
+
+    public bool ReadBool() {
+        byte[] data = new byte[1];
+        data[0] = (byte)stream.ReadByte();
+        return BitConverter.ToBoolean(data);
+    }
+
+    public Vector3 ReadVector3() {
+        return new Vector3(ReadFloat(),ReadFloat(),ReadFloat());
+    }
+
+    public Color ReadColor() {
+        return new Color(ReadFloat(),ReadFloat(),ReadFloat());
     }
 
     public void WriteHeader(byte header) { 

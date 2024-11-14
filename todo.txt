@@ -4,38 +4,41 @@ TDM with 4 classes to pick from and a few maps
 
 # Server
 
-[ ] Boilerplate
-[ ] connecting with id/username
-[ ] packet system
+[x] Boilerplate
+[x] connecting with id/username
+[x] packet system
+[ ] UDP
+[ ] more reliable packet transmission to prevent a single incorrect read completely fucking up the bitbuffer
+[ ] More secure movement and game loop
 
 # Lobby
 
 [ ] UI
 [ ] Leaderboard
+[x] Chat
 
 # Gameplay
 
-[ ] Basic movement
-[ ] Camera controller
-[ ] UI 
-[ ] Ammunition
-[ ] Projectiles
+[x] Basic movement
+[x] Camera controller
+[x] UI 
+[x] Ammunition
+[x] Projectiles
+[ ] Class selection
 
 # Replication
 
-[ ] Replicate userdata
-[ ] Replicate characters
+[x] Replicate userdata
+[x] Replicate characters
 
 # Sound
 
-[ ] Tank engines
-[ ] Projectile firing
+[x] Tank engines
+[x] Projectile firing
 [ ] Tank impact
+[ ] low HP
 
-# Ordered
+# Levels
 
-1. finish making the movement non-shit
-2. design a HUD
-3. implement a HUD
-4. get a main menu working
-5. get a logger overhead ui working
+[ ] some map
+[ ] some other map

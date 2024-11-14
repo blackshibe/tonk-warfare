@@ -1,6 +1,10 @@
 .git
 
-# yeah basically uhhh
+client.txt
+server.txt
+
+build
+
 client/Temp
 client/Library
 client/Logs
